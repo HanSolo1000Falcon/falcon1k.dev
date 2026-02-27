@@ -1,4 +1,5 @@
 import main from './main.html';
+import notfound from './notfound.html';
 
 export default {
 	async fetch(request, env, ctx) {
@@ -10,7 +11,14 @@ export default {
 				headers: {
 					'Content-Type': 'text/html'
 				}
-			})
+			});
 		}
+
+		return new Response(notfound, {
+			status: 200,
+			headers: {
+				'Content-Type': 'text/html'
+			}
+		});
 	},
 };
