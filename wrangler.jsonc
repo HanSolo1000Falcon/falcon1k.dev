@@ -7,6 +7,10 @@
 	"name": "falcon1k-website",
 	"main": "src/index.js",
 	"compatibility_date": "2026-02-27",
+	"routes": [
+		"falcon1k.dev/*",
+		"www.falcon1k.dev/*"
+	],
 	"observability": {
 		"enabled": true
 	},

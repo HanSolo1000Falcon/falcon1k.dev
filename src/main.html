@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>HanSolo1000Falcon</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+	<style>
+		body {
+			margin: 0;
+			font-family: 'Inter', sans-serif;
+			color: white;
+			background: #0f0f14;
+		}
+
+		#blur-overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			backdrop-filter: blur(12px);
+			background: rgba(0, 0, 0, 0.5);
+			z-index: 50;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			transition: opacity 0.6s ease;
+		}
+
+		#blur-overlay.hidden {
+			opacity: 0;
+			pointer-events: none;
+		}
+
+		#enter-btn {
+			font-size: 32px;
+			color: #b565f7;
+			border: 2px solid #b565f7;
+			padding: 20px 40px;
+			border-radius: 12px;
+			background: transparent;
+			cursor: pointer;
+			text-transform: uppercase;
+		}
+
+		#enter-btn:hover {
+			background: #b565f7;
+			color: #1a1a24;
+		}
+
+		#bg-video {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			z-index: -1;
+		}
+
+		.middle-panel {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 1;
+			background: rgba(26, 26, 36, 0.7);
+			padding: 40px;
+			border-radius: 16px;
+			width: 500px;
+			max-width: 90%;
+			box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+			backdrop-filter: blur(8px);
+			text-align: center;
+		}
+
+		.now-playing {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			background: rgba(26, 26, 36, 0.7);
+			color: #b565f7;
+			font-weight: 600;
+			font-size: 16px;
+			padding: 10px 20px;
+			border-radius: 12px;
+			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+			backdrop-filter: blur(8px);
+			transition: transform 0.3s ease, opacity 0.3s ease;
+			cursor: default;
+			z-index: 1;
+		}
+
+		.now-playing:hover {
+			transform: translateY(-4px);
+			opacity: 0.95;
+		}
+
+		a {
+			color: #b565f7;
+			text-decoration: none;
+		}
+
+		a:hover {
+			color: #e0b3ff;
+			text-decoration: underline;
+		}
+
+		hr {
+			border: none;
+			height: 1px;
+			background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+			margin: 40px 0;
+		}
+	</style>
+</head>
+<body>
+
+<video autoplay muted loop playsinline id="bg-video">
+	<source src="https://raw.githubusercontent.com/hansolo1000falcon/files/main/calming-winter-video.mp4"
+					type="video/mp4">
+</video>
+
+<audio id="bg-music" loop>
+	<source src="https://raw.githubusercontent.com/hansolo1000falcon/files/main/background-music.mp3" type="audio/mpeg">
+</audio>
+
+<div id="blur-overlay">
+	<button id="enter-btn">Press to Enter</button>
+</div>
+
+<div class="middle-panel">
+	<img src="https://raw.githubusercontent.com/hansolo1000falcon/files/main/pfp.png" alt="My profile picture" width="200"
+			 height="200">
+	<h1><b>HanSolo1000Falcon</b></h1>
+
+	<hr>
+
+	<section>
+		<h2>About me</h2>
+		<p>Hobbyist programmer who somehow always has three projects open and zero finished. I like building things just to
+			figure out how they work, then rebuilding them “better” instead of shipping.</p>
+		<p>Big fan of the C language family (C, C++, C#) because I enjoy having just enough control to break everything
+			myself. I spend a lot of time messing with Web APIs, backend logic, and systems stuff that probably didn’t need to
+			be reinvented but now exists anyway.</p>
+		<p>Time management is… theoretical. I’ll optimize something that isn’t even in production yet. But when a project
+			clicks, I lock in hard.</p>
+		<p>Mostly here to learn, build cool stuff, and slowly turn side projects into something real.</p>
+	</section>
+
+	<hr>
+
+	<section>
+		<h2>More/Contact me</h2>
+		<p><b><a href="https://github.com/hansolo1000falcon">My GitHub profile</a></b></p>
+		<p><b><a href="https://github.com/hansolo1000falcon/falcon1k.dev">The source code to this page</a></b></p>
+		<p><b><a href="https://github.com/hansolo1000falcon/api.falcon1k.dev">The source code to my API</a></b></p>
+	</section>
+</div>
+
+<div class="now-playing">
+	Now playing: PASSIN - Ken Carson
+</div>
+
+<script>
+	const enterBtn = document.getElementById('enter-btn');
+	const blurOverlay = document.getElementById('blur-overlay');
+	const music = document.getElementById('bg-music');
+
+	enterBtn.addEventListener('click', () => {
+		blurOverlay.classList.add('hidden');
+		music.play();
+	});
+</script>
+
+</body>
