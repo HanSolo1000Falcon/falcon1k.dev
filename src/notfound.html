@@ -80,10 +80,7 @@
 </head>
 <body>
 
-<video autoplay muted loop playsinline id="bg-video">
-	<source src="https://raw.githubusercontent.com/hansolo1000falcon/files/main/calming-winter-video.mp4"
-					type="video/mp4">
-</video>
+<video autoplay muted loop playsinline id="bg-video"></video>
 
 <div class="middle-panel">
 	<h1>404</h1>
@@ -93,5 +90,16 @@
 	<p>Chill, you can <a href="/">go back home</a> or check out <a href="https://github.com/hansolo1000falcon">my
 		GitHub</a> for cool stuff instead.</p>
 </div>
+
+<script type="module">
+	const randomNumber = Math.floor(Math.random() * 3/* Note to self: when changing the number here, make sure to change it in './main.html' too!!! */) + 1;
+	const video = document.getElementById('bg-video');
+
+	video.innerHTML = `
+		<source
+			src="https://raw.githubusercontent.com/hansolo1000falcon/files/main/calming-winter-video_${randomNumber}.mp4"
+			type="video/mp4" />
+		`;
+</script>
 
 </body>

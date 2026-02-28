@@ -120,10 +120,7 @@
 </head>
 <body>
 
-<video autoplay muted loop playsinline id="bg-video">
-	<source src="https://raw.githubusercontent.com/hansolo1000falcon/files/main/calming-winter-video.mp4"
-					type="video/mp4">
-</video>
+<video autoplay muted loop playsinline id="bg-video"></video>
 
 <audio id="bg-music" loop>
 	<source src="https://raw.githubusercontent.com/hansolo1000falcon/files/main/background-music.mp3" type="audio/mpeg">
@@ -166,10 +163,18 @@
 	Now playing: PASSIN - Ken Carson
 </div>
 
-<script>
+<script type="module">
 	const enterBtn = document.getElementById('enter-btn');
 	const blurOverlay = document.getElementById('blur-overlay');
 	const music = document.getElementById('bg-music');
+	const randomNumber = Math.floor(Math.random() * 3/* Note to self: when changing the number here, make sure to change it in './notfound.html' too!!! */) + 1;
+	const video = document.getElementById('bg-video');
+
+	video.innerHTML = `
+		<source
+			src="https://raw.githubusercontent.com/hansolo1000falcon/files/main/calming-winter-video_${randomNumber}.mp4"
+			type="video/mp4" />
+		`;
 
 	enterBtn.addEventListener('click', () => {
 		blurOverlay.classList.add('hidden');
