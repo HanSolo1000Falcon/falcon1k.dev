@@ -117,6 +117,12 @@ hr {
   text-align: center;
   overflow-y: auto;
   z-index: 1;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.div-base::-webkit-scrollbar {
+  display: none;
 }
 
 .div-constrained {

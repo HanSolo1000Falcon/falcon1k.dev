@@ -49,7 +49,7 @@ function Vote() {
     votedPolls.push(poll.pollName);
     localStorage.setItem("pollsVoted", JSON.stringify(votedPolls));
 
-    setHasVoted(true); // <- THIS is your "reload"
+    setHasVoted(true);
   };
 
   const handleAcceptCookies = () => {
