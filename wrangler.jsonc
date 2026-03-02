@@ -7,16 +7,12 @@
 	"name": "falcon1k-website",
 	"main": "src/index.js",
 	"compatibility_date": "2026-02-27",
-	"routes": [
-		"falcon1k.dev/*",
-		"www.falcon1k.dev/*"
-	],
+	"routes": ["falcon1k.dev/*", "www.falcon1k.dev/*"],
 	"observability": {
-		"enabled": true
+		"enabled": true,
 	},
-	"compatibility_flags": [
-		"nodejs_compat"
-	]
+	"compatibility_flags": ["nodejs_compat"],
+	"assets": { "directory": "./public/", "binding": "ASSETS" },
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
@@ -39,7 +35,6 @@
 	 * Static Assets
 	 * https://developers.cloudflare.com/workers/static-assets/binding/
 	 */
-	// "assets": {  "directory": "./public/",  "binding": "ASSETS" }
 	/**
 	 * Service Bindings (communicate between multiple Workers)
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings

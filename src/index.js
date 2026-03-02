@@ -10,24 +10,24 @@ export default {
 				status: 200,
 				headers: {
 					'Content-Type': 'text/plain',
-				}
-			})
+				},
+			});
 		}
 
 		if (!url.pathname || url.pathname === '/') {
 			return new Response(main, {
 				status: 200,
 				headers: {
-					'Content-Type': 'text/html'
-				}
+					'Content-Type': 'text/html',
+				},
 			});
 		}
 
 		return new Response(notfound, {
 			status: 200,
 			headers: {
-				'Content-Type': 'text/html'
-			}
+				'Content-Type': 'text/html',
+			},
 		});
 	},
 };
