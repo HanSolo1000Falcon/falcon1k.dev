@@ -1,4 +1,5 @@
 import main from './main.html';
+import voter from './voter.html';
 import notfound from './notfound.html';
 
 export default {
@@ -16,6 +17,15 @@ export default {
 
 		if (!url.pathname || url.pathname === '/') {
 			return new Response(main, {
+				status: 200,
+				headers: {
+					'Content-Type': 'text/html',
+				},
+			});
+		}
+
+		if (url.pathname.startsWith('/vote')) {
+			return new Response(voter, {
 				status: 200,
 				headers: {
 					'Content-Type': 'text/html',

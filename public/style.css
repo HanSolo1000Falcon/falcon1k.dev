@@ -1,8 +1,42 @@
+html,
 body {
 	margin: 0;
 	font-family: 'Inter', sans-serif;
 	color: white;
 	background: #0f0f14;
+}
+
+button {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 10px 0;
+	font-size: 18px;
+	font-weight: 600;
+	color: #fff;
+	background: rgba(181, 101, 247, 0.2);
+	border: 2px solid #b565f7;
+	border-radius: 12px;
+	cursor: pointer;
+	transition:
+		all 0.3s ease,
+		transform 0.2s ease;
+}
+
+button:hover {
+	background: #b565f7;
+	color: #1a1a24;
+	transform: scale(1.05);
+	box-shadow: 0 8px 20px rgba(181, 101, 247, 0.5);
+}
+
+button:active {
+	transform: scale(0.98);
+	box-shadow: 0 4px 12px rgba(181, 101, 247, 0.4);
+}
+
+#enter-btn {
+	width: 20%;
+	font-size: 36px;
 }
 
 #blur-overlay {
@@ -26,22 +60,6 @@ body {
 	pointer-events: none;
 }
 
-#enter-btn {
-	font-size: 32px;
-	color: #b565f7;
-	border: 2px solid #b565f7;
-	padding: 20px 40px;
-	border-radius: 12px;
-	background: transparent;
-	cursor: pointer;
-	text-transform: uppercase;
-}
-
-#enter-btn:hover {
-	background: #b565f7;
-	color: #1a1a24;
-}
-
 #bg-video {
 	position: fixed;
 	top: 0;
@@ -56,6 +74,7 @@ body {
 	position: fixed;
 	top: 50%;
 	left: 50%;
+	max-height: 90vh;
 	transform: translate(-50%, -50%);
 	z-index: 1;
 	background: rgba(26, 26, 36, 0.7);
@@ -66,6 +85,18 @@ body {
 	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 	backdrop-filter: blur(8px);
 	text-align: center;
+	overflow-y: auto;
+}
+
+.middle-panel ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.middle-panel ul li {
+	display: flex;
+	justify-content: center;
 }
 
 .now-playing {
