@@ -1,6 +1,6 @@
-import main from './main.html';
-import voter from './voter.html';
-import notfound from './notfound.html';
+import main from './pages/main.html';
+import voter from './pages/voter.html';
+import notfound from './pages/notfound.html';
 
 export default {
 	async fetch(request, env, ctx) {
