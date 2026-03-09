@@ -100,6 +100,11 @@ function AboutMe() {
               <a href="/discord/invite">My Discord server</a>
             </b>
           </p>
+          <p>
+            <b>
+              <a href="https://guns.lol/hansolo1kfalcon">My <a href="https://guns.lol">guns.lol</a> profiile</a>
+            </b>
+          </p>
         </section>
 
         <hr />
