@@ -97,7 +97,7 @@ function AboutMe() {
           </p>
           <p>
             <b>
-              <a href="https://discord.gg/gNvJtwpdYB">My Discord server</a>
+              <a href="/discord/invite">My Discord server</a>
             </b>
           </p>
         </section>

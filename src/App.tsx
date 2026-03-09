@@ -8,9 +8,11 @@ import AboutMe from "./components/AboutMe";
 import Vote from "./components/Vote";
 import Discord from "./components/Discord";
 import NotFound from "./components/NotFound";
+import DiscordInvite from "./components/DiscordInvite.tsx";
 
 function AppContent() {
   const location = useLocation();
+  // eslint-disable-next-line react-hooks/purity
   const randomNumber = Math.floor(Math.random() * 3) + 1;
 
   return (
@@ -29,6 +31,7 @@ function AppContent() {
         <Route path="/" element={<AboutMe />} />
         <Route path="/vote" element={<Vote />} />
         <Route path="/.well-known/discord" element={<Discord />} />
+        <Route path="/discord/invite" element={<DiscordInvite />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
