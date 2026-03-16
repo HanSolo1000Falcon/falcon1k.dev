@@ -1,7 +1,20 @@
 import {useState, useEffect} from "react";
 
 function AboutMe() {
+    const [viewCount, setViewCount] = useState("");
     const [isPlaying, setIsPlaying] = useState(false);
+
+    useEffect(() => {
+        fetch('https://api.falcon1k.dev/view-count')
+            .then(response => response.text())
+            .then(text => {
+                console.log("view count response:", text);
+                setViewCount(text);
+            })
+            .catch(err => {
+                console.error("view count fetch failed:", err);
+            });
+    }, []);
 
     useEffect(() => {
         const audio = document.getElementById(
@@ -119,6 +132,7 @@ function AboutMe() {
                         Vote on the current poll!
                     </button>
                 </section>
+                <p><b>Page Views: {viewCount === "" ? "Not Fetched" : viewCount}</b></p>
             </div>
 
             <div className="div-base now-playing">
