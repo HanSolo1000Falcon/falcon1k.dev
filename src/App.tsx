@@ -4,7 +4,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import AboutMe from "./components/AboutMe";
+import AboutMe from "./components/aboutMe/AboutMe.tsx";
 import Vote from "./components/Vote";
 import Discord from "./components/Discord";
 import NotFound from "./components/NotFound";
