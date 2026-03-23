@@ -2,6 +2,29 @@ import {useEffect, useState} from "react";
 
 function MainAM() {
     const [viewCount, setViewCount] = useState("");
+    const [currentQuote, setCurrentQuote] = useState("");
+    const [hasUpdatedQuote, setHasUpdatedQuote] = useState(false);
+
+    const updateQuote = () => {
+        setHasUpdatedQuote(true);
+        const quotes = [
+            "i use arch btw",
+            "life's too short, debug in prod",
+            "c and c++ are infinitely better than rust",
+            "the complexity of c++ is good",
+            "frontend < backend",
+            "apis should be written in c or c++",
+            "i <3 scratch",
+            "did i tell you i use arch?"
+        ]
+        let quoteTemp = "";
+        do {
+            // eslint-disable-next-line react-hooks/purity
+            quoteTemp = quotes[Math.floor(Math.random() * quotes.length)];
+        } while (quoteTemp != currentQuote);
+        setCurrentQuote(quoteTemp);
+        setTimeout(updateQuote, 3000);
+    }
 
     useEffect(() => {
         fetch('https://api.falcon1k.dev/view-count')
@@ -14,6 +37,14 @@ function MainAM() {
                 console.error("view count fetch failed:", err);
             });
     }, []);
+
+    useEffect(() => {
+        if (hasUpdatedQuote) {
+            return;
+        }
+
+        updateQuote();
+    }, [updateQuote]);
 
     return (
         <div className="div-base div-constrained">
@@ -59,6 +90,13 @@ function MainAM() {
             <hr/>
 
             <section>
+                <h2>Some quotes</h2>
+                <p><b>"{currentQuote}" - HanSolo1000Falcon</b></p>
+            </section>
+
+            <hr/>
+
+            <section>
                 <h2>More/Contact me</h2>
                 <p>
                     <b>
@@ -74,8 +112,7 @@ function MainAM() {
                 </p>
                 <p>
                     <b>
-                        <a href="https://guns.lol/hansolo1kfalcon">My <a
-                            href="https://guns.lol">guns.lol</a> profiile</a>
+                        <a href="https://guns.lol/hansolo1kfalcon">My guns.lol profile</a>
                     </b>
                 </p>
             </section>
