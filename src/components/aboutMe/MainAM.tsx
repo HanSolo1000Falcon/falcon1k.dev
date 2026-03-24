@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 
 function MainAM() {
-    const [viewCount, setViewCount] = useState("");
     const [currentQuote, setCurrentQuote] = useState("");
     const [hasUpdatedQuote, setHasUpdatedQuote] = useState(false);
 
@@ -27,24 +26,12 @@ function MainAM() {
     }
 
     useEffect(() => {
-        fetch('https://api.falcon1k.dev/view-count')
-            .then(response => response.text())
-            .then(text => {
-                console.log("view count response:", text);
-                setViewCount(text);
-            })
-            .catch(err => {
-                console.error("view count fetch failed:", err);
-            });
-    }, []);
-
-    useEffect(() => {
         if (hasUpdatedQuote) {
             return;
         }
 
         updateQuote();
-    }, [updateQuote]);
+    }, [hasUpdatedQuote, updateQuote]);
 
     return (
         <div className="div-base div-constrained">
@@ -124,7 +111,6 @@ function MainAM() {
                     Vote on the current poll!
                 </button>
             </section>
-            <p><b>Page Views: {viewCount === "" ? "Not Fetched" : viewCount}</b></p>
         </div>
     )
 }
