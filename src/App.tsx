@@ -12,7 +12,6 @@ import DiscordInvite from "./components/DiscordInvite.tsx";
 
 function AppContent() {
   const location = useLocation();
-  // eslint-disable-next-line react-hooks/purity
   const randomNumber = Math.floor(Math.random() * 3) + 1;
 
   return (

@@ -20,7 +20,7 @@ function MainAM() {
         do {
             // eslint-disable-next-line react-hooks/purity
             quoteTemp = quotes[Math.floor(Math.random() * quotes.length)];
-        } while (quoteTemp != currentQuote);
+        } while (quoteTemp == currentQuote);
         setCurrentQuote(quoteTemp);
         setTimeout(updateQuote, 3000);
     }
