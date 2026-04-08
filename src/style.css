@@ -153,3 +153,15 @@ hr {
 .now-playing:hover {
   transform: scale(1.05);
 }
+
+#bio-div {
+  display: flex;
+  gap: 1rem;
+  text-align: left; 
+  padding: 20px;
+}
+
+#bio-div h1,
+#bio-div h3 {
+  margin: 0;
+}

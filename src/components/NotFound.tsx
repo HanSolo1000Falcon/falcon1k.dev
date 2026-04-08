@@ -9,12 +9,10 @@ function NotFound() {
       </p>
       <hr />
       <p>
-        Chill, you can <a href="/">go back home</a> or check out{" "}
-        <a href="https://github.com/hansolo1000falcon">my GitHub</a> for cool
-        stuff instead.
+        Chill, you can <a href="/">return back home</a> or <a href="/vote">vote on the current poll</a> while you wait!
       </p>
     </div>
-  );
+  )
 }
 
-export default NotFound;
+export default NotFound

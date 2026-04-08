@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 
 async function uploadVote(option: number) {
   await fetch("https://api.falcon1k.dev/poll/upload", {
@@ -7,55 +7,55 @@ async function uploadVote(option: number) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ votedFor: option }),
-  });
+  })
 }
 
 async function fetchPoll(): Promise<{ pollName: string; options: string[] }> {
-  const response = await fetch("https://api.falcon1k.dev/poll/current");
-  return response.json();
+  const response = await fetch("https://api.falcon1k.dev/poll/current")
+  return response.json()
 }
 
 function Vote() {
-  const [cookiesAccepted, setCookiesAccepted] = useState(false);
+  const [cookiesAccepted, setCookiesAccepted] = useState(false)
   const [poll, setPoll] = useState<{
-    pollName: string;
-    options: string[];
-  } | null>(null);
-  const [hasVoted, setHasVoted] = useState(false);
+    pollName: string
+    options: string[]
+  } | null>(null)
+  const [hasVoted, setHasVoted] = useState(false)
 
   useEffect(() => {
-    const accepted = localStorage.getItem("didAcceptCookies") === "true";
-    setCookiesAccepted(accepted);
-  }, []);
+    const accepted = localStorage.getItem("didAcceptCookies") === "true"
+    setCookiesAccepted(accepted)
+  }, [])
 
   useEffect(() => {
-    if (!cookiesAccepted) return;
+    if (!cookiesAccepted) return
 
     fetchPoll().then((data) => {
-      const votedPolls = JSON.parse(localStorage.getItem("pollsVoted") || "[]");
+      const votedPolls = JSON.parse(localStorage.getItem("pollsVoted") || "[]")
       if (votedPolls.includes(data.pollName)) {
-        setHasVoted(true);
+        setHasVoted(true)
       }
-      setPoll(data);
-    });
-  }, [cookiesAccepted]);
+      setPoll(data)
+    })
+  }, [cookiesAccepted])
 
   const handleVote = async (index: number) => {
-    if (!poll) return;
+    if (!poll) return
 
-    await uploadVote(index);
+    await uploadVote(index)
 
-    const votedPolls = JSON.parse(localStorage.getItem("pollsVoted") || "[]");
-    votedPolls.push(poll.pollName);
-    localStorage.setItem("pollsVoted", JSON.stringify(votedPolls));
+    const votedPolls = JSON.parse(localStorage.getItem("pollsVoted") || "[]")
+    votedPolls.push(poll.pollName)
+    localStorage.setItem("pollsVoted", JSON.stringify(votedPolls))
 
-    setHasVoted(true);
-  };
+    setHasVoted(true)
+  }
 
   const handleAcceptCookies = () => {
-    localStorage.setItem("didAcceptCookies", "true");
-    setCookiesAccepted(true);
-  };
+    localStorage.setItem("didAcceptCookies", "true")
+    setCookiesAccepted(true)
+  }
 
   if (!cookiesAccepted) {
     return (
@@ -63,11 +63,11 @@ function Vote() {
         <h2>To view this page you must accept cookies.</h2>
         <button id="accept-cookies" onClick={handleAcceptCookies}>Accept Cookies</button>
       </div>
-    );
+    )
   }
 
   if (!poll) {
-    return <h1>Loading poll...</h1>;
+    return <h1>Loading poll...</h1>
   }
 
   if (hasVoted) {
@@ -75,7 +75,7 @@ function Vote() {
       <div className="div-base div-constrained">
         <h1>You have already voted on this poll!</h1>
       </div>
-    );
+    )
   }
 
   return (
@@ -89,7 +89,7 @@ function Vote() {
         ))}
       </ul>
     </div>
-  );
+  )
 }
 
-export default Vote;
+export default Vote
