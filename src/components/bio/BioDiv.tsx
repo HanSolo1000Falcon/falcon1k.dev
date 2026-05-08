@@ -8,7 +8,7 @@ function BioDiv() {
   const quotes = [
     "c++ > c",
     "rust, raw pointers are better than your borrow checker",
-    "proud gentoo user",
+    "larping void linux since '26",
     "i am both smarter and dumber than you think, dont ever estimate me",
     "i got a website!",
     "404 - skill not found",
